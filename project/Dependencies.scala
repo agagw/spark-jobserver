@@ -33,12 +33,22 @@ object Dependencies {
   )
 
   lazy val sparkDeps = Seq(
-    "org.apache.spark" %% "spark-core" % spark % "provided" excludeAll excludeQQ
+    "org.apache.spark" %% "spark-core" % spark % "provided" excludeAll(
+      excludeQQ, excludeJackson, excludeJacksonA, excludeJacksonC
+      )
   )
 
   lazy val sparkExtraDeps = Seq(
+    "com.fasterxml.jackson.core" % "jackson-databind" % jacksonDataBinding % Provided excludeAll excludeQQ,
+    "com.fasterxml.jackson.core" % "jackson-core" % jackson % Provided excludeAll excludeQQ,
+    "com.fasterxml.jackson.core" % "jackson-annotations" % jackson % Provided excludeAll excludeQQ,
     "org.apache.derby" % "derby" % derby % Provided excludeAll excludeQQ,
-    "org.apache.hadoop" % "hadoop-client" % hadoop % Provided excludeAll excludeQQ,
+    "org.apache.hadoop" % "hadoop-client" % hadoop % Provided excludeAll(
+      excludeQQ, excludeJackson, excludeJacksonA, excludeJacksonC
+      ),
+    "org.apache.hadoop" % "hadoop-aws" % hadoop % Provided excludeAll(
+      excludeQQ, excludeJackson, excludeJacksonA, excludeJacksonC
+      ),
     "org.apache.spark" %% "spark-mllib" % spark % Provided excludeAll excludeQQ,
     "org.apache.spark" %% "spark-sql" % spark % Provided excludeAll excludeQQ,
     "org.apache.spark" %% "spark-streaming" % spark % Provided excludeAll excludeQQ,

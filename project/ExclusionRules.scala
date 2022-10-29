@@ -3,6 +3,9 @@ import sbt._
 object ExclusionRules {
   val excludeCglib = ExclusionRule(organization = "org.sonatype.sisu.inject")
   val excludeJackson = ExclusionRule(organization = "com.fasterxml.jackson.core", name = "jackson-databind")
+  val excludeJacksonA = ExclusionRule(organization = "com.fasterxml.jackson.core", name = "jackson-annotations")
+  val excludeJacksonC = ExclusionRule(organization = "com.fasterxml.jackson.core", name = "jackson-core")
+  val excludeHadoop = ExclusionRule(organization = "org.apache.hadoop")
   val excludeScalaTest = ExclusionRule(organization = "org.scalatest")
   val excludeScala = ExclusionRule(organization = "org.scala-lang")
   val excludeAsm = ExclusionRule(organization = "asm")
